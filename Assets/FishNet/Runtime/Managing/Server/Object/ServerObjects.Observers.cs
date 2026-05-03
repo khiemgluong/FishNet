@@ -8,7 +8,7 @@ using FishNet.Object;
 using FishNet.Observing;
 using FishNet.Serializing;
 using FishNet.Transporting;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using System.Collections.Generic;
 using UnityEngine;
 

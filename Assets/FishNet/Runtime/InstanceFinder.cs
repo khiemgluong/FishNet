@@ -1,20 +1,21 @@
-using FishNet.Component.ColliderRollback;
-using FishNet.Managing;
-using FishNet.Managing.Client;
-using FishNet.Managing.Predicting;
-using FishNet.Managing.Scened;
-using FishNet.Managing.Server;
-using FishNet.Managing.Statistic;
-using FishNet.Managing.Timing;
-using FishNet.Managing.Transporting;
+
 using FishNet.Utility;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using System;
 using System.Linq;
 using UnityEngine;
 
 namespace FishNet
 {
+    using Component.ColliderRollback;
+    using Managing;
+    using Managing.Client;
+    using Managing.Predicting;
+    using Managing.Scened;
+    using Managing.Server;
+    using Managing.Statistic;
+    using Managing.Timing;
+    using Managing.Transporting;
     /// <summary>
     /// Used to globally get information from the first found instance of NetworkManager.
     /// </summary>

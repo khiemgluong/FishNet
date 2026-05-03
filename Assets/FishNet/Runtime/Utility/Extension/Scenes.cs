@@ -1,6 +1,6 @@
 ﻿using FishNet.Managing;
 using FishNet.Object;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;

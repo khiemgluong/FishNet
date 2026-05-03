@@ -4,7 +4,7 @@ using System.Linq;
 using FishNet.Editing.PrefabCollectionGenerator;
 using FishNet.Object;
 using FishNet.Utility.Extension;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;

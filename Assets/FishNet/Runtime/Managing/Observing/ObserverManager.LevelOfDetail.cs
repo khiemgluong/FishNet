@@ -4,7 +4,7 @@ using FishNet.Connection;
 using FishNet.Managing.Timing;
 using FishNet.Object;
 using FishNet.Utility;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using UnityEngine;
 
 namespace FishNet.Managing.Observing

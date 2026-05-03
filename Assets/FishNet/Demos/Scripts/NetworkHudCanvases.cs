@@ -138,7 +138,7 @@ namespace FishNet.Example
             _clientIndicator.transform.gameObject.SetActive(false);
 #endif
 
-            _networkManager = FindObjectOfType<NetworkManager>();
+            _networkManager = GetComponentInParent<NetworkManager>();
             if (_networkManager == null)
             {
                 Debug.LogError("NetworkManager not found, HUD will not function.");
@@ -206,7 +206,7 @@ namespace FishNet.Example
                 _networkManager.ServerManager.StopConnection(true);
             else
                 _networkManager.ServerManager.StartConnection();
-
+            Debug.Log("Server button clicked. Current server state: " + _serverState);
             DeselectButtons();
         }
 

@@ -1,5 +1,5 @@
 ﻿using FishNet.Object;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using UnityEngine;
 
 namespace FishNet.Component.Transforming.Beta

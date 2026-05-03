@@ -1,5 +1,5 @@
 using FishNet.Managing.Timing;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 
 namespace FishNet.Editing.NetworkProfiler
 {

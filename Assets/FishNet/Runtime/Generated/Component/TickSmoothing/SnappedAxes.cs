@@ -1,5 +1,5 @@
 ﻿using System;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 
 namespace FishNet.Component.Transforming
 {

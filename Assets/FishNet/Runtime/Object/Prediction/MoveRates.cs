@@ -1,4 +1,4 @@
-﻿using GameKit.Dependencies.Utilities;
+﻿using Extensions.Dependencies.Utilities;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.Scripting;

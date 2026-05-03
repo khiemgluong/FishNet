@@ -6,12 +6,12 @@ using FishNet.Object.Prediction;
 using FishNet.Serializing.Helping;
 using FishNet.Transporting;
 using FishNet.Utility;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
-using GameKit.Dependencies.Utilities.Types;
+using Extensions.Dependencies.Utilities.Types;
 using UnityEngine;
 
 [assembly: InternalsVisibleTo(UtilityConstants.GENERATED_ASSEMBLY_NAME)]

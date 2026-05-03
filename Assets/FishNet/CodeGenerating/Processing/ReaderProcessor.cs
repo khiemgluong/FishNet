@@ -11,7 +11,7 @@ using FishNet.CodeGenerating.Extension;
 using FishNet.Utility.Performance;
 using FishNet.Object;
 using FishNet.Utility;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 
 namespace FishNet.CodeGenerating.Helping
 {

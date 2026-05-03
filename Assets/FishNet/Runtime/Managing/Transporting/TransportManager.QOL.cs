@@ -2,7 +2,7 @@
 using FishNet.Connection;
 using FishNet.Transporting;
 using FishNet.Transporting.Multipass;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using UnityEngine;
 
 namespace FishNet.Managing.Transporting

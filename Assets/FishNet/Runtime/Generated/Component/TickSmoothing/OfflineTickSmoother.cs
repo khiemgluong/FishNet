@@ -1,6 +1,6 @@
 ﻿using FishNet.Managing;
 using FishNet.Managing.Timing;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using UnityEngine;
 using UnityEngine.Serialization;
 

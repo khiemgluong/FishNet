@@ -9,13 +9,13 @@ using FishNet.Object.Prediction.Delegating;
 using FishNet.Serializing;
 using FishNet.Transporting;
 using FishNet.Utility.Performance;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using MonoFN.Cecil;
 using MonoFN.Cecil.Cil;
 using MonoFN.Cecil.Rocks;
 using System.Collections.Generic;
 using System.Linq;
-using GameKit.Dependencies.Utilities.Types;
+using Extensions.Dependencies.Utilities.Types;
 using UnityEngine;
 using SR = System.Reflection;
 

@@ -2,7 +2,7 @@ using FishNet.Managing;
 using FishNet.Managing.Object;
 using FishNet.Object;
 using FishNet.Utility.Extension;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;

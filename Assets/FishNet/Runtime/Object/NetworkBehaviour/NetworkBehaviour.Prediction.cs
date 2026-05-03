@@ -15,12 +15,12 @@ using FishNet.Serializing;
 using FishNet.Serializing.Helping;
 using FishNet.Transporting;
 using FishNet.Utility;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using FishNet.Managing.Observing;
-using GameKit.Dependencies.Utilities.Types;
+using Extensions.Dependencies.Utilities.Types;
 using Unity.Profiling;
 using UnityEngine;
 

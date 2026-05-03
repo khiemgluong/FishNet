@@ -15,6 +15,7 @@ namespace FishNet.Managing.Editing
         private SerializedProperty _persistence;
         private SerializedProperty _spawnablePrefabs;
         private SerializedProperty _objectPool;
+        private SerializedProperty _playerSpawner;
 
         private void OnEnable()
         {
@@ -25,6 +26,7 @@ namespace FishNet.Managing.Editing
             _persistence = serializedObject.FindProperty("_persistence");
             _spawnablePrefabs = serializedObject.FindProperty("_spawnablePrefabs");
             _objectPool = serializedObject.FindProperty("_objectPool");
+            _playerSpawner = serializedObject.FindProperty("_spawner");
         }
 
         public override void OnInspectorGUI()
@@ -60,6 +62,7 @@ namespace FishNet.Managing.Editing
             EditorGUILayout.PropertyField(_spawnablePrefabs);
             EditorGUILayout.PropertyField(_objectPool);
             EditorGUILayout.PropertyField(_refreshDefaultPrefabs);
+            EditorGUILayout.PropertyField(_playerSpawner);
 
             EditorGUI.indentLevel--;
             EditorGUILayout.Space();

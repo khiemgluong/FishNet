@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using FishNet.CodeGenerating;
 using FishNet.Transporting;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 
 [assembly: InternalsVisibleTo(UtilityConstants.CODEGEN_ASSEMBLY_NAME)]
 

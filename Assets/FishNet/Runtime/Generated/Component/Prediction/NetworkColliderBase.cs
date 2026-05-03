@@ -1,6 +1,6 @@
 using System;
 using FishNet.Object;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using UnityEngine;
 using UnityEngine.Serialization;
 using TimeManagerCls = FishNet.Managing.Timing.TimeManager;
@@ -141,7 +141,7 @@ namespace FishNet.Component.Prediction
                 if (_lastGameObjectLayer != currentLayer)
                 {
                     _lastGameObjectLayer = currentLayer;
-                    InteractableLayers = GameKit.Dependencies.Utilities.Layers.GetInteractableLayersValue(currentLayer);
+                    InteractableLayers = Extensions.Dependencies.Utilities.Layers.GetInteractableLayersValue(currentLayer);
                 }
             }
 

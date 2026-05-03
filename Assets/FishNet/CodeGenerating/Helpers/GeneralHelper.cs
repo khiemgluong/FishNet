@@ -8,14 +8,14 @@ using FishNet.Object.Helping;
 using FishNet.Serializing;
 using FishNet.Serializing.Helping;
 using FishNet.Utility.Performance;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using MonoFN.Cecil;
 using MonoFN.Cecil.Cil;
 using MonoFN.Cecil.Rocks;
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.ComTypes;
-using GameKit.Dependencies.Utilities.Types;
+using Extensions.Dependencies.Utilities.Types;
 using UnityEngine;
 using SR = System.Reflection;
 

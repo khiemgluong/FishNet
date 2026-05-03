@@ -5,7 +5,7 @@ using FishNet.Managing.Timing;
 using FishNet.Object;
 using FishNet.Object.Prediction;
 using FishNet.Utility.Extension;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.Scripting;

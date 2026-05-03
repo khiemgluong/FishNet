@@ -10,8 +10,8 @@ using System.Runtime.CompilerServices;
 using FishNet.Utility.Performance;
 using FishNet.Component.Ownership;
 using FishNet.Utility.Extension;
-using GameKit.Dependencies.Utilities;
-using GameKit.Dependencies.Utilities.Types;
+using Extensions.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities.Types;
 using UnityEngine.Serialization;
 #if UNITY_EDITOR
 using UnityEditor;

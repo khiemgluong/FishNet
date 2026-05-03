@@ -3,7 +3,7 @@
 #endif
 using FishNet.Connection;
 using FishNet.Managing;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using System;
 using System.Collections.Generic;
 using UnityEngine;

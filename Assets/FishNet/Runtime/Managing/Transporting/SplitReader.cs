@@ -1,6 +1,6 @@
 ﻿using FishNet.Serializing;
 using System;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using UnityEngine;
 
 namespace FishNet.Managing.Transporting

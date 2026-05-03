@@ -10,7 +10,7 @@ using MonoFN.Cecil.Cil;
 using MonoFN.Cecil.Rocks;
 using System;
 using System.Collections.Generic;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using SR = System.Reflection;
 using UnityDebug = UnityEngine.Debug;
 

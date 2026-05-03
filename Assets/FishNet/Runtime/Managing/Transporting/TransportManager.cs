@@ -10,7 +10,7 @@ using FishNet.Transporting.Multipass;
 using System;
 using System.Collections.Generic;
 using FishNet.Managing.Statistic;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using UnityEngine;
 using UnityEngine.Serialization;
 

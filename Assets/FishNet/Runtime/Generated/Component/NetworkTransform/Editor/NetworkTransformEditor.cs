@@ -1,9 +1,9 @@
 ﻿#if UNITY_EDITOR
 using FishNet.Editing;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using UnityEditor;
 using UnityEngine;
-using LayoutTools = GameKit.Dependencies.Utilities.EditorGuiLayoutTools;
+using LayoutTools = Extensions.Dependencies.Utilities.EditorGuiLayoutTools;
 
 namespace FishNet.Component.Transforming.Editing
 {
@@ -60,11 +60,11 @@ namespace FishNet.Component.Transforming.Editing
 
             LayoutTools.AddObjectField("Script:", MonoScript.FromMonoBehaviour((NetworkTransform)target), typeof(NetworkTransform), false, EditorLayoutEnableType.Disabled);
 
-            bool isPro = false;
-            if (isPro)
-                EditorGUILayout.HelpBox(EditingConstants.PRO_ASSETS_UNLOCKED_TEXT, MessageType.None);
-            else
-                EditorGUILayout.HelpBox(EditingConstants.PRO_ASSETS_LOCKED_TEXT, MessageType.Warning);
+            // bool isPro = false;
+            // if (isPro)
+            //     EditorGUILayout.HelpBox(EditingConstants.PRO_ASSETS_UNLOCKED_TEXT, MessageType.None);
+            // else
+            //     EditorGUILayout.HelpBox(EditingConstants.PRO_ASSETS_LOCKED_TEXT, MessageType.Warning);
 
             //Misc.
             EditorGUILayout.LabelField("Misc", EditorStyles.boldLabel);
@@ -80,7 +80,7 @@ namespace FishNet.Component.Transforming.Editing
             EditorGUI.indentLevel++;
             EditorGUILayout.PropertyField(_useScaledTime);
             EditorGUILayout.PropertyField(_interpolation);
-            EditorGUILayout.PropertyField(_extrapolation, new GUIContent("* Extrapolation"));
+            // EditorGUILayout.PropertyField(_extrapolation, new GUIContent("* Extrapolation"));
             EditorGUILayout.PropertyField(_enableTeleport);
             if (_enableTeleport.boolValue)
             {

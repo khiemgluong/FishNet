@@ -1,6 +1,6 @@
 using FishNet.Managing.Timing;
 using FishNet.Object;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using UnityEngine;
 
 namespace FishNet.Utility.Template

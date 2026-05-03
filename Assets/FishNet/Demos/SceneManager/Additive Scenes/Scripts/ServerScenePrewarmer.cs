@@ -1,6 +1,6 @@
 ﻿using FishNet.Managing.Scened;
 using FishNet.Object;
-using GameKit.Dependencies.Utilities.Types;
+using Extensions.Dependencies.Utilities.Types;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

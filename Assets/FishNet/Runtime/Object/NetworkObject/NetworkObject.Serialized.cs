@@ -2,7 +2,7 @@
 
 using UnityEngine;
 using System;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using System.Collections.Generic;
 using FishNet.Managing;
 using FishNet.Utility.Extension;

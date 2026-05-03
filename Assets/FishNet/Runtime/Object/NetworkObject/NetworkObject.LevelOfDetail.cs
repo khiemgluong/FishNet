@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using FishNet.Connection;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
 using UnityEngine;
 
 namespace FishNet.Object

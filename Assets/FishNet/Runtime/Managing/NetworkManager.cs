@@ -29,7 +29,8 @@ using FishNet.Component.Transforming.Beta;
 using FishNet.Configuring;
 using FishNet.Configuring.EditorCloning;
 using FishNet.Managing.Predicting;
-using GameKit.Dependencies.Utilities;
+using Extensions.Dependencies.Utilities;
+using FishNet.Component.Spawning;
 
 namespace FishNet.Managing
 {
@@ -121,12 +122,12 @@ namespace FishNet.Managing
         /// ObserverManager for this NetworkManager.
         /// </summary>
         public ObserverManager ObserverManager { get; private set; }
-        #if FISHNET_THREADED_TICKSMOOTHERS
+#if FISHNET_THREADED_TICKSMOOTHERS
         /// <summary>
         /// TickSmoothingManager for this NetworkManager.
         /// </summary>
         public TickSmoothingManager TickSmoothingManager { get; private set; }
-        #endif
+#endif
         /// <summary>
         /// DebugManager for this NetworkManager.
         /// </summary>
@@ -143,7 +144,7 @@ namespace FishNet.Managing
         #endregion
 
         #region Internal.
-        #if DEVELOPMENT && !UNITY_SERVER
+#if DEVELOPMENT && !UNITY_SERVER
         /// <summary>
         /// Names of broadcasts.
         /// Key: Broadcast key.
@@ -174,17 +175,17 @@ namespace FishNet.Managing
             if (!_broadcastNames.ContainsKey(key))
                 _broadcastNames[key] = typeof(T).Name;
         }
-        #endif
+#endif
         /// <summary>
         /// Starting index for RpcLinks.
         /// </summary>
         internal static ushort StartingRpcLinkIndex;
-        #if DEVELOPMENT
+#if DEVELOPMENT
         /// <summary>
         /// Logs data about parser to help debug.
         /// </summary>
         internal PacketIdHistory PacketIdHistory = new();
-        #endif
+#endif
         /// <summary>
         /// Timestamp when the first NetworkManager instance was launched.
         /// </summary>
@@ -192,14 +193,14 @@ namespace FishNet.Managing
         #endregion
 
         #region Serialized.
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         /// <summary>
         /// True to refresh the DefaultPrefabObjects collection whenever the editor enters play mode. This is an attempt to alleviate the DefaultPrefabObjects scriptable object not refreshing when using multiple editor applications such as ParrelSync.
         /// </summary>
         [Tooltip("True to refresh the DefaultPrefabObjects collection whenever the editor enters play mode. This is an attempt to alleviate the DefaultPrefabObjects scriptable object not refreshing when using multiple editor applications such as ParrelSync.")]
         [SerializeField]
         private bool _refreshDefaultPrefabs = false;
-        #endif
+#endif
         /// <summary>
         /// True to have your application run while in the background.
         /// </summary>
@@ -278,7 +279,7 @@ namespace FishNet.Managing
             bool isDefaultPrefabs = SpawnablePrefabs != null && SpawnablePrefabs is DefaultPrefabObjects;
             CloneChecker.IsMultiplayerClone(out EditorCloneType cloneType);
 
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             /* If first instance then force
              * default prefabs to repopulate.
              * This is only done in editor because
@@ -297,7 +298,7 @@ namespace FishNet.Managing
                 Generator.GenerateFull(initializeAdded: false);
                 Generator.IgnorePostProcess = false;
             }
-            #endif
+#endif
             // If default prefabs then also make a new instance and sort them.
             if (isDefaultPrefabs)
             {
@@ -325,14 +326,15 @@ namespace FishNet.Managing
             TimeManager = GetOrCreateComponent<TimeManager>();
             SceneManager = GetOrCreateComponent<SceneManager>();
             ObserverManager = GetOrCreateComponent<ObserverManager>();
-            #if THREADED_TICKSMOOTHERS
+#if THREADED_TICKSMOOTHERS
             TickSmoothingManager = GetOrCreateComponent<TickSmoothingManager>();
-            #endif
+#endif
             RollbackManager = GetOrCreateComponent<RollbackManager>();
             PredictionManager = GetOrCreateComponent<PredictionManager>();
             StatisticsManager = GetOrCreateComponent<StatisticsManager>();
             if (_objectPool == null)
                 _objectPool = GetOrCreateComponent<DefaultObjectPool>();
+            _spawner = new PlayerSpawner(this, _spawner);
 
             InitializeComponents();
 
@@ -349,6 +351,7 @@ namespace FishNet.Managing
         private void OnDestroy()
         {
             _instances.Remove(this);
+            _spawner.OnDestroy();
         }
 
         /// <summary>
@@ -372,9 +375,9 @@ namespace FishNet.Managing
 
             SceneManager.InitializeOnce_Internal(this);
             ObserverManager.InitializeOnce_Internal(this);
-            #if THREADED_TICKSMOOTHERS
+#if THREADED_TICKSMOOTHERS
             TickSmoothingManager.InitializeOnce_Internal(this);
-            #endif
+#endif
             RollbackManager.InitializeOnce_Internal(this);
             PredictionManager.InitializeOnce(this);
             StatisticsManager.InitializeOnce_Internal(this);
@@ -411,13 +414,13 @@ namespace FishNet.Managing
             /* Make sure framerate isn't set to max on server.
              * If it is then default to tick rate. If framerate is
              * less than tickrate then also set to tickrate. */
-            #if UNITY_SERVER && !UNITY_EDITOR
+#if UNITY_SERVER && !UNITY_EDITOR
             ushort minimumServerFramerate = (ushort)(TimeManager.TickRate + 15);
             if (frameRate == MAXIMUM_FRAMERATE)
                 frameRate = minimumServerFramerate;
             else if (frameRate < TimeManager.TickRate)
                 frameRate = minimumServerFramerate;
-            #endif
+#endif
             // If there is a framerate to set.
             if (frameRate > 0)
                 Application.targetFrameRate = frameRate;
@@ -492,7 +495,7 @@ namespace FishNet.Managing
             if (SpawnablePrefabs == null && !string.IsNullOrEmpty(gameObject.scene.name))
             {
                 // First try to fetch the file, only if editor and not in play mode.
-                #if UNITY_EDITOR
+#if UNITY_EDITOR
                 if (!ApplicationState.IsPlaying())
                 {
                     SpawnablePrefabs = Generator.GetDefaultPrefabObjects();
@@ -503,7 +506,7 @@ namespace FishNet.Managing
                         return true;
                     }
                 }
-                #endif
+#endif
                 // Always throw an error as this would cause failure.
                 if (print)
                     Debug.LogError($"SpawnablePrefabs is null on {gameObject.name}. Select the NetworkManager in scene {gameObject.scene.name} and choose a prefabs file. Choosing DefaultPrefabObjects will automatically populate prefabs for you.");
@@ -632,7 +635,7 @@ namespace FishNet.Managing
         }
 
         #region Editor.
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         private void OnValidate()
         {
             if (SpawnablePrefabs == null)
@@ -644,7 +647,7 @@ namespace FishNet.Managing
             ValidateSpawnablePrefabs(true);
         }
 
-        #endif
+#endif
         #endregion
     }
 }

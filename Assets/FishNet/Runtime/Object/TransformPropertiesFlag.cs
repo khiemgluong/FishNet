@@ -1,4 +1,4 @@
-﻿using GameKit.Dependencies.Utilities;
+﻿using Extensions.Dependencies.Utilities;
 
 namespace FishNet.Object
 {
