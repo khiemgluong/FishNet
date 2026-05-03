@@ -22,7 +22,7 @@ Asset Store: https://assetstore.unity.com/packages/tools/network/fish-net-networ
 
 Documentation and Addons: https://fish-networking.gitbook.io/docs/
 
-Package Manager URL: https://github.com/FirstGearGames/FishNet.git?path=Assets/FishNet
+Package Manager URL: https://github.com/khiemgluong/FishNet.git?path=Assets/FishNet
 
 Discord: https://discord.gg/Ta9HgDh4Hj
 
