@@ -331,7 +331,6 @@ namespace FishNet.Managing
             StatisticsManager = GetOrCreateComponent<StatisticsManager>();
             if (_objectPool == null)
                 _objectPool = GetOrCreateComponent<DefaultObjectPool>();
-            _spawner = new PlayerSpawner(this, _spawner);
 
             InitializeComponents();
 
@@ -348,7 +347,6 @@ namespace FishNet.Managing
         private void OnDestroy()
         {
             _instances.Remove(this);
-            _spawner.OnDestroy();
         }
 
         /// <summary>
