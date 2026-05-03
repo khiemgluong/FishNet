@@ -2,7 +2,7 @@
 using FishNet.Managing;
 using FishNet.Managing.Statistic;
 using FishNet.Managing.Timing;
-using Extensions.Dependencies.Utilities.Types;
+using ExtensionKit.Types;
 using UnityEngine;
 
 namespace FishNet.Component.Utility

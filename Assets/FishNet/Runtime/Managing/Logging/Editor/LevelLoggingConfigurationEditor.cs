@@ -1,5 +1,5 @@
 ﻿#if UNITY_EDITOR
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using UnityEditor;
 
 namespace FishNet.Managing.Logging.Editing

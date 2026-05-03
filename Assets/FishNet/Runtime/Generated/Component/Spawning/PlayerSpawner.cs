@@ -4,7 +4,7 @@ using FishNet.Object;
 using System;
 using UnityEngine;
 using UnityEngine.Serialization;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 namespace FishNet.Component.Spawning
 {
     /// <summary>

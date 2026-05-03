@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using FishNet.Editing;
 using FishNet.Editing.NetworkProfiler;
 using FishNet.Transporting;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using Unity.Profiling;
 using UnityEngine;
 

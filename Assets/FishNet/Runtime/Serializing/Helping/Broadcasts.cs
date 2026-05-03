@@ -2,7 +2,7 @@
 using FishNet.Managing;
 using FishNet.Serializing;
 using FishNet.Transporting;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using System;
 using System.Collections.Generic;
 

@@ -1,9 +1,9 @@
 ﻿#if UNITY_EDITOR
 using FishNet.Managing.Debugging;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using UnityEditor;
 using UnityEngine;
-using LayoutTools = Extensions.Dependencies.Utilities.EditorGuiLayoutTools;
+using LayoutTools = ExtensionKit.EditorGuiLayoutTools;
 
 namespace FishNet.Managing.Editing
 {

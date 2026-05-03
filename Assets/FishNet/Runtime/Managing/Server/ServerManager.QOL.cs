@@ -8,7 +8,7 @@ using FishNet.Transporting.Multipass;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using UnityEngine;
 
 namespace FishNet.Managing.Server

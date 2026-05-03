@@ -1,6 +1,6 @@
 ﻿#if UNITY_EDITOR && !THREADED_TICKSMOOTHERS
 using FishNet.Object;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using UnityEditor;
 using UnityEngine;
 

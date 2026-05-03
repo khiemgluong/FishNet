@@ -2,7 +2,7 @@
 using FishNet.CodeGenerating;
 using FishNet.Serializing;
 using FishNet.Utility.Performance;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using System.Collections.Generic;
 
 namespace FishNet.Managing.Server

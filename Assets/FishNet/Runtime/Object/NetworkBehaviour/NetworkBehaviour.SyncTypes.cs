@@ -9,7 +9,7 @@ using FishNet.Object.Synchronizing;
 using FishNet.Object.Synchronizing.Internal;
 using FishNet.Serializing;
 using FishNet.Transporting;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using FishNet.Serializing.Helping;

@@ -2,7 +2,7 @@
 using FishNet.Managing.Timing;
 using FishNet.Object;
 using FishNet.Object.Prediction;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using Unity.Profiling;
 using UnityEngine;
 

@@ -8,7 +8,7 @@ using FishNet.Object;
 using FishNet.Serializing;
 using FishNet.Transporting;
 using FishNet.Utility.Performance;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using System;
 using System.Collections.Generic;
 using FishNet.Managing.Statistic;

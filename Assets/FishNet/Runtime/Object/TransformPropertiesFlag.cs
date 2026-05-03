@@ -1,4 +1,4 @@
-﻿using Extensions.Dependencies.Utilities;
+﻿using ExtensionKit;
 
 namespace FishNet.Object
 {

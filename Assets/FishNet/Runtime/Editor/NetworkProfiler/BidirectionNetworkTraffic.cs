@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using FishNet.Managing;
 using FishNet.Managing.Statistic;
 using FishNet.Transporting;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using UnityEngine;
 
 namespace FishNet.Editing.NetworkProfiler

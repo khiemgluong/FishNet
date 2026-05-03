@@ -1,5 +1,5 @@
 ﻿using System;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 
 namespace FishNet.Component.Transforming
 {

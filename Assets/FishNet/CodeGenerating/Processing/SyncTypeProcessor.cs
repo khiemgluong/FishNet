@@ -4,7 +4,7 @@ using FishNet.CodeGenerating.Helping.Extension;
 using FishNet.Object.Delegating;
 using FishNet.Object.Synchronizing;
 using FishNet.Object.Synchronizing.Internal;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using MonoFN.Cecil;
 using MonoFN.Cecil.Cil;
 using MonoFN.Collections.Generic;

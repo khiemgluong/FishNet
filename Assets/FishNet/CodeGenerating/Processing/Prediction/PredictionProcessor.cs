@@ -1,26 +1,28 @@
-﻿using FishNet.CodeGenerating.Extension;
-using FishNet.CodeGenerating.Helping;
-using FishNet.CodeGenerating.Helping.Extension;
-using FishNet.CodeGenerating.Processing.Rpc;
-using FishNet.Connection;
-using FishNet.Object;
-using FishNet.Object.Prediction;
-using FishNet.Object.Prediction.Delegating;
-using FishNet.Serializing;
-using FishNet.Transporting;
-using FishNet.Utility.Performance;
-using Extensions.Dependencies.Utilities;
+﻿using ExtensionKit;
+
 using MonoFN.Cecil;
 using MonoFN.Cecil.Cil;
 using MonoFN.Cecil.Rocks;
 using System.Collections.Generic;
 using System.Linq;
-using Extensions.Dependencies.Utilities.Types;
 using UnityEngine;
 using SR = System.Reflection;
 
 namespace FishNet.CodeGenerating.Processing
 {
+    using Extension;
+    using Helping;
+    using Helping.Extension;
+    using Processing.Rpc;
+    using Connection;
+    using Object;
+    using Object.Prediction;
+    using Object.Prediction.Delegating;
+    using Serializing;
+    using Transporting;
+    using Utility.Performance;
+    using ExtensionKit.Types;
+
     internal class PredictionProcessor : CodegenBase
     {
         #region Types.

@@ -2,7 +2,7 @@
 using FishNet.Connection;
 using FishNet.Transporting;
 using FishNet.Transporting.Multipass;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using UnityEngine;
 
 namespace FishNet.Managing.Transporting

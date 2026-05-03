@@ -3,7 +3,7 @@ using FishNet.Documenting;
 using FishNet.Managing;
 using FishNet.Managing.Timing;
 using FishNet.Object;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using System;
 using System.Collections.Generic;
 using FishNet.Broadcast;

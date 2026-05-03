@@ -1,6 +1,6 @@
 ﻿using System;
 using FishNet.Serializing;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 
 namespace FishNet.Managing.Timing
 {

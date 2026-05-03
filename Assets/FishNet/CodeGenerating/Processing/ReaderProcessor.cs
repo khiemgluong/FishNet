@@ -11,7 +11,6 @@ using FishNet.CodeGenerating.Extension;
 using FishNet.Utility.Performance;
 using FishNet.Object;
 using FishNet.Utility;
-using Extensions.Dependencies.Utilities;
 
 namespace FishNet.CodeGenerating.Helping
 {

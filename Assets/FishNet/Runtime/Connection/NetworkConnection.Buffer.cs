@@ -6,7 +6,7 @@ using FishNet.Object;
 using FishNet.Transporting;
 using System;
 using System.Collections.Generic;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using UnityEngine;
 
 namespace FishNet.Connection

@@ -1,6 +1,6 @@
 using System;
 using FishNet.Managing;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 
 namespace FishNet.Serializing
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 using FishNet.Utility.Extension;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using UnityEngine;
 
 namespace FishNet.Object.Prediction

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 using FishNet.Managing;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using UnityEngine;
 
 namespace FishNet.Serializing.Helping

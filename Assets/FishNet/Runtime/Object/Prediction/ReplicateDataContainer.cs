@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using FishNet.CodeGenerating;
 using FishNet.Transporting;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 
 [assembly: InternalsVisibleTo(UtilityConstants.CODEGEN_ASSEMBLY_NAME)]
 

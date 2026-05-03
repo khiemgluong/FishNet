@@ -5,7 +5,7 @@ using FishNet.Component.Transforming;
 using FishNet.Managing;
 using FishNet.Managing.Timing;
 using FishNet.Object.Prediction;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using System.Collections.Generic;
 using FishNet.Connection;
 using FishNet.Managing.Server;

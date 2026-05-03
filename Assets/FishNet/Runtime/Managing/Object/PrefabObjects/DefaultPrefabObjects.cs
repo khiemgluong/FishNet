@@ -1,7 +1,7 @@
 using FishNet.Documenting;
 using System.Collections.Generic;
 using UnityEngine;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using System.Text;
 #if UNITY_EDITOR
 using UnityEditor;

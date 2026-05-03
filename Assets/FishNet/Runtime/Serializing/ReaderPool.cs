@@ -2,7 +2,7 @@ using FishNet.Managing;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 
 namespace FishNet.Serializing
 {

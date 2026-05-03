@@ -2,7 +2,7 @@
 using FishNet.Managing.Server;
 using FishNet.Object;
 using System;
-using Extensions.Dependencies.Utilities.Types;
+using ExtensionKit.Types;
 using UnityEngine;
 
 namespace FishNet.Observing

@@ -1,7 +1,7 @@
 ﻿#if !FISHNET_THREADED_COLLIDER_ROLLBACK
 using System;
 using System.Runtime.CompilerServices;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using UnityEngine;
 
 namespace FishNet.Component.ColliderRollback

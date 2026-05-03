@@ -1,6 +1,6 @@
 ﻿using FishNet.Managing;
 using FishNet.Managing.Timing;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using UnityEngine;
 using UnityEngine.Serialization;
 

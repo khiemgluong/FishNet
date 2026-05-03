@@ -1,6 +1,6 @@
 
 using FishNet.Utility;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using System;
 using System.Linq;
 using UnityEngine;

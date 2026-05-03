@@ -11,7 +11,7 @@ using FishNet.Managing.Timing;
 using FishNet.Managing.Transporting;
 using System;
 using System.Collections.Generic;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using UnityEngine;
 
 namespace FishNet.Object

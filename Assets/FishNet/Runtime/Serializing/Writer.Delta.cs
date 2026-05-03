@@ -8,7 +8,7 @@ using FishNet.Managing;
 using FishNet.Object;
 using FishNet.Object.Prediction;
 using FishNet.Serializing.Helping;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using UnityEngine;
 
 namespace FishNet.Serializing

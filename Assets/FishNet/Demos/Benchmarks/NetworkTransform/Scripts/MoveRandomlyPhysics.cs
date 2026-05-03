@@ -2,7 +2,7 @@
 using FishNet.Component.Transforming;
 using FishNet.Managing.Timing;
 using FishNet.Utility.Template;
-using Extensions.Dependencies.Utilities.Types;
+using ExtensionKit.Types;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

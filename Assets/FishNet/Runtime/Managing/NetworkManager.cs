@@ -29,7 +29,7 @@ using FishNet.Component.Transforming.Beta;
 using FishNet.Configuring;
 using FishNet.Configuring.EditorCloning;
 using FishNet.Managing.Predicting;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using FishNet.Component.Spawning;
 
 namespace FishNet.Managing

@@ -1,7 +1,7 @@
 ﻿#if UNITY_EDITOR
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using UnityEditor;
-using LayoutTools = Extensions.Dependencies.Utilities.EditorGuiLayoutTools;
+using LayoutTools = ExtensionKit.EditorGuiLayoutTools;
 
 namespace FishNet.Component.Transforming.Editing
 {

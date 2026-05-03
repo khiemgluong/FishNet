@@ -4,7 +4,7 @@ using FishNet.Managing.Timing;
 using FishNet.Object;
 using FishNet.Object.Prediction;
 using FishNet.Utility.Extension;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using UnityEngine;
 using UnityEngine.Scripting;
 

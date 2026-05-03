@@ -1,5 +1,5 @@
 ﻿using System;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using UnityEngine;
 
 namespace FishNet.Object

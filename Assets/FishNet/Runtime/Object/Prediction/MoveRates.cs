@@ -1,4 +1,4 @@
-﻿using Extensions.Dependencies.Utilities;
+﻿using ExtensionKit;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.Scripting;

@@ -3,7 +3,7 @@ using FishNet.Managing.Object;
 using FishNet.Object;
 using FishNet.Serializing;
 using FishNet.Utility.Extension;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using System;
 using System.Collections.Generic;
 using UnityEngine;

@@ -2,7 +2,7 @@
 
 using UnityEngine;
 using System;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using System.Collections.Generic;
 using FishNet.Managing;
 using FishNet.Utility.Extension;

@@ -10,7 +10,7 @@ using FishNet.Managing.Transporting;
 using FishNet.Object.Delegating;
 using FishNet.Serializing;
 using FishNet.Transporting;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using System.Collections.Generic;
 using System.Text;
 using FishNet.Managing.Statistic;

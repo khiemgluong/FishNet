@@ -2,7 +2,7 @@
 using FishNet.Editing.PrefabCollectionGenerator;
 using FishNet.Object;
 using FishNet.Utility.Extension;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using System.Collections.Generic;
 using FishNet.Configuring.EditorCloning;
 using UnityEditor;

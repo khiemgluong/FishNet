@@ -2,7 +2,7 @@
 using FishNet.Component.Prediction;
 using FishNet.Managing;
 using FishNet.Serializing;
-using Extensions.Dependencies.Utilities;
+using ExtensionKit;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Scripting;
