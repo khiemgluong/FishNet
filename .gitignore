@@ -2,6 +2,7 @@
 /Assets/*
 !/Assets/FishNet
 !.gitignore
+**/**.prefab
 
 DefaultPrefabObjects.asset
 DefaultPrefabObjects.asset.meta
@@ -20,3 +21,5 @@ Documentation
 *.vsconfig
 *.csproj.meta
 .idea
+/**.meta
+Assets/FishNet/Demos/Benchmarks/NetworkTransform/Prefabs/NetworkTransform Benchmark 3D Rigidbodies.prefab
