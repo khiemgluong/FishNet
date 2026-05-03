@@ -50,7 +50,7 @@ namespace FishNet.Component.Spawning
         /// </summary>
         [Tooltip("Areas in which players may spawn.")]
         // public Transform[] Spawns = new Transform[0];
-        public Transforms.Placement[] Spawns;
+        public Placement[] Spawns;
         #endregion
 
 
@@ -133,7 +133,7 @@ namespace FishNet.Component.Spawning
                 return;
             }
 
-            Transforms.Placement result = Spawns[_nextSpawn];
+            Placement result = Spawns[_nextSpawn];
             if (result == null)
             {
                 SetSpawnUsingPrefab(prefab, out pos, out rot);

@@ -49,7 +49,7 @@ namespace FishNet.Managing.Timing
         {
             Tick = tick;
 
-            percentAsByte = Maths.ClampByte(percentAsByte, 0, MAXIMUM_BYTE_PERCENT);
+            percentAsByte = Bytes.ClampByte(percentAsByte, 0, MAXIMUM_BYTE_PERCENT);
             PercentAsByte = percentAsByte;
             PercentAsDouble = percentAsByte / 100d;
         }
@@ -60,7 +60,7 @@ namespace FishNet.Managing.Timing
         public PreciseTick(uint tick, double percent)
         {
             Tick = tick;
-            percent = Maths.ClampDouble(percent, 0d, MAXIMUM_DOUBLE_PERCENT);
+            percent = Floats.ClampDouble(percent, 0d, MAXIMUM_DOUBLE_PERCENT);
             PercentAsByte = (byte)(percent * 100d);
             PercentAsDouble = percent;
         }
