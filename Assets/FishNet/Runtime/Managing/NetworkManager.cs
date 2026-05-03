@@ -5,11 +5,7 @@
 using FishNet.Editing.PrefabCollectionGenerator;
 using UnityEditor;
 #endif
-using FishNet.Connection;
-using FishNet.Managing.Client;
-using FishNet.Managing.Server;
-using FishNet.Managing.Timing;
-using FishNet.Managing.Transporting;
+
 using UnityEngine;
 using FishNet.Managing.Scened;
 using FishNet.Object;
@@ -19,8 +15,7 @@ using System;
 using FishNet.Managing.Observing;
 using System.Linq;
 using FishNet.Broadcast;
-using FishNet.Managing.Debugging;
-using FishNet.Managing.Object;
+
 using FishNet.Transporting;
 using FishNet.Managing.Statistic;
 using FishNet.Utility.Performance;
@@ -34,6 +29,13 @@ using FishNet.Component.Spawning;
 
 namespace FishNet.Managing
 {
+    using Connection;
+    using Client;
+    using Server;
+    using Timing;
+    using Object;
+    using Transporting;
+    using Debugging;
     /// <summary>
     /// Acts as a container for all things related to your networking session.
     /// </summary>
@@ -60,6 +62,7 @@ namespace FishNet.Managing
             /// Allow multiple NetworkManagers, do not destroy any automatically.
             /// </summary>
             AllowMultiple
+
         }
         #endregion
 
@@ -212,14 +215,8 @@ namespace FishNet.Managing
         /// </summary>
         [Tooltip("True to make this instance DontDestroyOnLoad. This is typical if you only want one NetworkManager.")]
         [SerializeField]
-        private bool _dontDestroyOnLoad = true;
-        /// <summary>
-        /// Object pool to use for this NetworkManager. Value may be null.
-        /// </summary>
-        public ObjectPool ObjectPool => _objectPool;
-        [Tooltip("Object pool to use for this NetworkManager. Value may be null.")]
-        [SerializeField]
-        private ObjectPool _objectPool;
+        private bool _dontDestroyOnLoad = false;
+
         /// <summary>
         /// How to persist when other NetworkManagers are introduced.
         /// </summary>

@@ -9,6 +9,13 @@ namespace FishNet.Managing
     public sealed partial class NetworkManager : MonoBehaviour
     {
         /// <summary>
+        /// Object pool to use for this NetworkManager. Value may be null.
+        /// </summary>
+        public ObjectPool ObjectPool => _objectPool;
+        [Tooltip("Object pool to use for this NetworkManager. Value may be null.")]
+        [SerializeField]
+        private ObjectPool _objectPool;
+        /// <summary>
         /// Returns an instantiated or pooled object using supplied values. When a value is not specified it uses default values to the prefab or NetworkManager.
         /// </summary>
         public NetworkObject GetPooledInstantiated(NetworkObject prefab, Transform parent, bool asServer) => GetPooledInstantiated(prefab.PrefabId, prefab.SpawnableCollectionId, ObjectPoolRetrieveOption.MakeActive, parent, position: null, rotation: null, scale: null, asServer);

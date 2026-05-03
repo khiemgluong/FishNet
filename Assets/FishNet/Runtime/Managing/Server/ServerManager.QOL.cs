@@ -139,6 +139,7 @@ namespace FishNet.Managing.Server
                 NetworkManager.LogWarning($"NetworkObject {nob} cannot be spawned because it is not marked as spawnable.");
                 return;
             }
+            Debug.Log($"Spawning object {nob.name} with owner connection {ownerConnection?.ClientId.ToString() ?? "null"} and scene {scene.name}.");
             Objects.Spawn(nob, ownerConnection, scene);
         }
 
