@@ -10,8 +10,11 @@ namespace FishNet.Object
     {
         [SerializeField]
         GameObject regular;
+        public GameObject Regular => regular;
+
         [SerializeField]
         NetworkObject network;
+        public NetworkObject Network => network;
 
         public GameObject Get()
         {
@@ -38,8 +41,6 @@ namespace FishNet.Object
             }
         }
 
-        public GameObject GetRegular() => regular;
-        public NetworkObject GetNetwork() => network;
 
     }
 }

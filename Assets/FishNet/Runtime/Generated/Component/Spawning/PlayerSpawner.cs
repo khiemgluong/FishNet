@@ -1,22 +1,17 @@
 ﻿using System;
 using ExtensionKit;
-using FishNet.Connection;
-using FishNet.Managing;
-using FishNet.Object;
-using FishNet.Transporting;
+
 using UnityEngine;
 
 namespace FishNet.Component.Spawning
 {
-
+    using Connection;
+    using Managing;
+    using Object;
+    using Transporting;
     public class PlayerSpawner : MonoBehaviour
     {
-        [SerializeField]
-        private GameObject regularPlayer;
-        [SerializeField]
-        private NetworkObject networkPlayer;
-        
-        public PrefabPair playerPrefabs;
+        public PrefabPair player;
         public Placement placement;
 
         // Pending network spawn requested while client was still connecting.
@@ -26,8 +21,7 @@ namespace FishNet.Component.Spawning
             NetworkManager networkManager = GetActiveNetworkManager();
             if (networkManager == null)
             {
-                Debug.LogWarning("No active NetworkManager found. Spawning regular player.");
-                // SpawnRegularPlayer();
+                Debug.LogWarning("No active NetworkManager found.");
                 return;
             }
             networkManager.SceneManager.OnClientLoadedStartScenes += OnClientLoadedStartScenes;
@@ -37,22 +31,19 @@ namespace FishNet.Component.Spawning
         void Update()
         {
         }
+        public void SpawnPlayer(Placement placement)
+        {
+            this.placement = placement;
+            SpawnPlayer();
+        }
 
         [ContextMenu("Spawn Player")]
         private void SpawnPlayer()
         {
             NetworkManager networkManager = GetActiveNetworkManager();
 
-            // No NetworkManager at all — offline fallback.
-            if (networkManager == null)
+            if (networkManager == null || player.Network == null)
             {
-                SpawnRegularPlayer();
-                return;
-            }
-
-            if (networkPlayer == null)
-            {
-                Debug.LogWarning("Network player prefab is not assigned.");
                 SpawnRegularPlayer();
                 return;
             }
@@ -93,7 +84,7 @@ namespace FishNet.Component.Spawning
 
         private void SpawnNetworkPlayer(NetworkManager networkManager, NetworkConnection connection)
         {
-            NetworkObject nob = networkManager.GetPooledInstantiated(networkPlayer, placement.position, placement.Rotation, true);
+            NetworkObject nob = networkManager.GetPooledInstantiated(player.Network, placement.position, placement.Rotation, true);
             networkManager.ServerManager.Spawn(nob, connection);
             networkManager.SceneManager.AddOwnerToDefaultScene(nob);
         }
@@ -126,13 +117,13 @@ namespace FishNet.Component.Spawning
 
         private void SpawnRegularPlayer()
         {
-            if (regularPlayer == null)
+            if (player.Regular == null)
             {
                 Debug.LogWarning("Regular player prefab is not assigned.");
                 return;
             }
 
-            Instantiate(regularPlayer, placement.position, placement.Rotation);
+            Instantiate(player.Regular, placement.position, placement.Rotation);
         }
     }
 }
