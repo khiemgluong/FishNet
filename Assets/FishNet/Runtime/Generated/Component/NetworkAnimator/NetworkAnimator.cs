@@ -1,27 +1,29 @@
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
 #define DEVELOPMENT
 #endif
-using FishNet.Component.Transforming;
-using FishNet.Connection;
-using FishNet.Documenting;
-using FishNet.Managing.Logging;
-using FishNet.Managing.Server;
-using FishNet.Object;
-using FishNet.Serializing;
-using FishNet.Utility;
-using FishNet.Utility.Performance;
+
 using ExtensionKit;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using FishNet.Managing;
+using FishNet.Utility.Performance;
 using Unity.Profiling;
 using UnityEngine;
-using TimeManagerCls = FishNet.Managing.Timing.TimeManager;
 
 namespace FishNet.Component.Animating
 {
+    using Managing;
+    using Transforming;
+    using Connection;
+    using Documenting;
+    using Managing.Logging;
+    using Managing.Server;
+    using Object;
+    using Serializing;
+    using TimeManagerCls = Managing.Timing.TimeManager;
+
     [AddComponentMenu("FishNet/Component/NetworkAnimator")]
+    [RequireComponent(typeof(Animator))]
     public sealed class NetworkAnimator : NetworkBehaviour
     {
         #region Types.
@@ -284,12 +286,9 @@ namespace FishNet.Component.Animating
         #endregion
 
         #region Serialized.
-        /// <summary>
-        /// The animator component to synchronize.
-        /// </summary>
-        [Tooltip("The animator component to synchronize.")]
+
         [SerializeField]
-        private Animator _animator;
+        Animator _animator;
         /// <summary>
         /// The animator component to synchronize.
         /// </summary>
@@ -302,13 +301,13 @@ namespace FishNet.Component.Animating
         /// </summary>
         [Tooltip("True to synchronize changes even when the animator component is disabled.")]
         [SerializeField]
-        private bool _synchronizeWhenDisabled;
+        bool _syncDisabled;
         /// <summary>
         /// True to smooth float value changes for spectators.
         /// </summary>
         [Tooltip("True to smooth float value changes for spectators.")]
         [SerializeField]
-        private bool _smoothFloats = true;
+        bool _smoothFloats = true;
         /// <summary>
         /// How many ticks to interpolate.
         /// </summary>
@@ -379,7 +378,7 @@ namespace FishNet.Component.Animating
                 if (!_isAnimatorSet)
                     return false;
 
-                if (_animator.enabled || _synchronizeWhenDisabled)
+                if (_animator.enabled || _syncDisabled)
                     return true;
 
                 return false;
@@ -459,15 +458,15 @@ namespace FishNet.Component.Animating
         private bool _subscribedToTicks;
         #endregion
 
-        #region Private Profiler Markers
-        private static readonly ProfilerMarker _pm_OnPreTick = new("NetworkAnimator.TimeManager_OnPreTick()");
-        private static readonly ProfilerMarker _pm_OnPostTick = new("NetworkAnimator.TimeManager_OnPostTick()");
-        private static readonly ProfilerMarker _pm_OnUpdate = new("NetworkAnimator.TimeManager_OnUpdate()");
-        private static readonly ProfilerMarker _pm_CheckSendToServer = new("NetworkAnimator.CheckSendToServer()");
-        private static readonly ProfilerMarker _pm_CheckSendToClients = new("NetworkAnimator.CheckSendToClients()");
-        private static readonly ProfilerMarker _pm_SmoothFloats = new("NetworkAnimator.SmoothFloats()");
-        private static readonly ProfilerMarker _pm_AnimatorUpdated = new("NetworkAnimator.AnimatorUpdated(ref ArraySegment<byte>, bool)");
-        private static readonly ProfilerMarker _pm_ApplyParametersUpdated = new("NetworkAnimator.ApplyParametersUpdated(ref ArraySegment<byte>)");
+        #region Profiler Markers
+        static readonly ProfilerMarker _pm_OnPreTick = new("NetworkAnimator.TimeManager_OnPreTick()");
+        static readonly ProfilerMarker _pm_OnPostTick = new("NetworkAnimator.TimeManager_OnPostTick()");
+        static readonly ProfilerMarker _pm_OnUpdate = new("NetworkAnimator.TimeManager_OnUpdate()");
+        static readonly ProfilerMarker _pm_CheckSendToServer = new("NetworkAnimator.CheckSendToServer()");
+        static readonly ProfilerMarker _pm_CheckSendToClients = new("NetworkAnimator.CheckSendToClients()");
+        static readonly ProfilerMarker _pm_SmoothFloats = new("NetworkAnimator.SmoothFloats()");
+        static readonly ProfilerMarker _pm_AnimatorUpdated = new("NetworkAnimator.AnimatorUpdated(ref ArraySegment<byte>, bool)");
+        static readonly ProfilerMarker _pm_ApplyParametersUpdated = new("NetworkAnimator.ApplyParametersUpdated(ref ArraySegment<byte>)");
         #endregion
 
         #region Const.
@@ -493,16 +492,28 @@ namespace FishNet.Component.Animating
         private const byte CROSSFADE = 243;
         #endregion
 
-        private void Awake()
+        #region Lifecycle
+        void Awake()
         {
+            if (TryGetComponent<Animator>(out var animator))
+            {
+                _animator = animator;
+                if (animator.runtimeAnimatorController == null)
+                { Destroy(this); Destroy(animator); return; }
+            }
+            else
+            {
+                NetworkManager.LogError("No animator found on NetworkAnimator.");
+                Destroy(this); return;
+            }
             InitializeOnce();
         }
 
-        private void OnDestroy()
+        void OnDestroy()
         {
             ChangeTickSubscription(false);
         }
-
+        #endregion
         [APIExclude]
         public override void OnSpawnServer(NetworkConnection connection)
         {
@@ -1546,14 +1557,14 @@ namespace FishNet.Component.Animating
         #endregion
 
         #region Editor.
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         protected override void Reset()
         {
             base.Reset();
             if (_animator == null)
                 SetAnimator(GetComponent<Animator>());
         }
-        #endif
+#endif
         #endregion
     }
 }

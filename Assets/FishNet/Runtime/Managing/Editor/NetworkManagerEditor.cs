@@ -16,7 +16,7 @@ namespace FishNet.Managing.Editing
         private SerializedProperty _spawnablePrefabs;
         private SerializedProperty _objectPool;
 
-        private void OnEnable()
+        void OnEnable()
         {
             _logging = serializedObject.FindProperty("_logging");
             _refreshDefaultPrefabs = serializedObject.FindProperty("_refreshDefaultPrefabs");
@@ -25,6 +25,12 @@ namespace FishNet.Managing.Editing
             _persistence = serializedObject.FindProperty("_persistence");
             _spawnablePrefabs = serializedObject.FindProperty("_spawnablePrefabs");
             _objectPool = serializedObject.FindProperty("_objectPool");
+            Tools.hidden = true;
+        }
+
+        void OnDisable()
+        {
+            Tools.hidden = false;
         }
 
         public override void OnInspectorGUI()

@@ -14,7 +14,7 @@ namespace FishNet.Component.Animating.Editing
     {
         private SerializedProperty _animator;
         private SerializedProperty _interpolation;
-        private SerializedProperty _synchronizeWhenDisabled;
+        private SerializedProperty _syncDisabled;
         private SerializedProperty _smoothFloats;
         private SerializedProperty _clientAuthoritative;
         private SerializedProperty _sendToOwner;
@@ -25,7 +25,7 @@ namespace FishNet.Component.Animating.Editing
         {
             _animator = serializedObject.FindProperty(nameof(_animator));
             _interpolation = serializedObject.FindProperty(nameof(_interpolation));
-            _synchronizeWhenDisabled = serializedObject.FindProperty(nameof(_synchronizeWhenDisabled));
+            _syncDisabled = serializedObject.FindProperty(nameof(_syncDisabled));
             _smoothFloats = serializedObject.FindProperty(nameof(_smoothFloats));
 
             _clientAuthoritative = serializedObject.FindProperty(nameof(_clientAuthoritative));
@@ -41,23 +41,16 @@ namespace FishNet.Component.Animating.Editing
             EditorGUILayout.ObjectField("Script:", MonoScript.FromMonoBehaviour(na), typeof(NetworkAnimator), false);
             GUI.enabled = true;
 
-#pragma warning disable CS0162 // Unreachable code detected
-                EditorGUILayout.HelpBox(EditingConstants.PRO_ASSETS_LOCKED_TEXT, MessageType.Warning);
-#pragma warning restore CS0162 // Unreachable code detected
-
-            // Animator
-            EditorGUILayout.LabelField("Animator", EditorStyles.boldLabel);
-            EditorGUI.indentLevel++;
-            EditorGUILayout.PropertyField(_animator);
-            EditorGUILayout.PropertyField(_synchronizeWhenDisabled);
-            EditorGUI.indentLevel--;
-            EditorGUILayout.Space();
+            // #pragma warning disable CS0162 // Unreachable code detected
+            //                 EditorGUILayout.HelpBox(EditingConstants.PRO_ASSETS_LOCKED_TEXT, MessageType.Warning);
+            // #pragma warning restore CS0162 // Unreachable code detected
 
             // Synchronization Processing.
-            EditorGUILayout.LabelField("Synchronization Processing", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("Synchronization", EditorStyles.boldLabel);
             EditorGUI.indentLevel++;
             EditorGUILayout.PropertyField(_interpolation);
             EditorGUILayout.PropertyField(_smoothFloats);
+            EditorGUILayout.PropertyField(_syncDisabled);
             EditorGUI.indentLevel--;
             EditorGUILayout.Space();
 
