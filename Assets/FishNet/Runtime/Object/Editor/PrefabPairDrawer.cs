@@ -19,7 +19,8 @@ namespace FishNet.Object.Editing
 
             EditorGUI.BeginProperty(position, label, property);
 
-            Rect contentRect = EditorGUI.PrefixLabel(position, label);
+            bool hasLabel = label != null && !string.IsNullOrEmpty(label.text) && label.text != "Value";
+            Rect contentRect = hasLabel ? EditorGUI.PrefixLabel(position, label) : position;
             const float spacing = 4f;
             float halfWidth = (contentRect.width - spacing) / 2f;
 

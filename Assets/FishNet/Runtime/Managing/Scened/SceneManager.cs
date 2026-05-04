@@ -975,7 +975,7 @@ namespace FishNet.Managing.Scened
             if (nob.transform.parent != null)
                 return WarnAndReturnFalse($"NetworkObject {nob.name} cannot be moved because it is not the root object. Unity can only move root objects between scenes.");
             // In DDOL and IsGlobal.
-            if (nob.IsGlobal && nob.gameObject.scene.name == DDOL.GetDDOL().gameObject.scene.name)
+            if (nob.IsGlobal)
                 return WarnAndReturnFalse($"NetworkObject {nob.name} cannot be moved because it is global. Global objects must remain in the DontDestroyOnLoad scene.");
 
             // Fall through success.

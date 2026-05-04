@@ -404,25 +404,25 @@ namespace FishNet.Managing.Server
         /// </summary>
         protected internal void SetupSceneObjects()
         {
-            Scene ddolScene = DDOL.GetDDOL().gameObject.scene;
-            bool ddolLoaded = ddolScene.isLoaded;
+            // Scene ddolScene = DDOL.GetDDOL().gameObject.scene;
+            // bool ddolLoaded = ddolScene.isLoaded;
 
-            /* Becomes false if setup in GetSceenAt.
-             * This is a safety check for if Unity ever changes
-             * the behavior where DDOL scenes appear in the sceneCount. */
-            bool trySetupDdol = true;
+            // /* Becomes false if setup in GetSceenAt.
+            //  * This is a safety check for if Unity ever changes
+            //  * the behavior where DDOL scenes appear in the sceneCount. */
+            // bool trySetupDdol = true;
 
-            for (int i = 0; i < SceneManager.sceneCount; i++)
-            {
-                Scene s = SceneManager.GetSceneAt(i);
-                if (ddolLoaded && s.handle == ddolScene.handle)
-                    trySetupDdol = false;
+            // for (int i = 0; i < SceneManager.sceneCount; i++)
+            // {
+            //     Scene s = SceneManager.GetSceneAt(i);
+            //     if (ddolLoaded && s.handle == ddolScene.handle)
+            //         trySetupDdol = false;
 
-                SetupSceneObjects(s);
-            }
+            //     SetupSceneObjects(s);
+            // }
 
-            if (trySetupDdol)
-                SetupSceneObjects(ddolScene);
+            // if (trySetupDdol)
+            //     SetupSceneObjects(ddolScene);
         }
 
         /// <summary>
