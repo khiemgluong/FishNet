@@ -1,7 +1,6 @@
 ﻿#if UNITY_EDITOR
-using ExtensionKit;
 using UnityEditor;
-using LayoutTools = ExtensionKit.EditorGuiLayoutTools;
+using ExtensionKit.Editor;
 
 namespace FishNet.Component.Transforming.Editing
 {
@@ -34,7 +33,7 @@ namespace FishNet.Component.Transforming.Editing
         {
             serializedObject.Update();
 
-            LayoutTools.AddObjectField("Script:", MonoScript.FromMonoBehaviour((DetachableNetworkTickSmoother)target), typeof(DetachableNetworkTickSmoother), false, EditorLayoutEnableType.Disabled);
+            EditorGuiLayoutTools.AddObjectField("Script:", MonoScript.FromMonoBehaviour((DetachableNetworkTickSmoother)target), typeof(DetachableNetworkTickSmoother), false, EditorLayoutEnableType.Disabled);
 
             EditorGUILayout.HelpBox("This component will be obsoleted soon. Use NetworkTickSmoother or OfflineTickSmoother.", MessageType.Warning);
             // Misc.

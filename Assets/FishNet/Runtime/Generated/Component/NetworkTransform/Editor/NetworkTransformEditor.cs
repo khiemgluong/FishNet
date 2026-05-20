@@ -1,9 +1,9 @@
 ﻿#if UNITY_EDITOR
 using FishNet.Editing;
-using ExtensionKit;
+using ExtensionKit.Editor;
 using UnityEditor;
 using UnityEngine;
-using LayoutTools = ExtensionKit.EditorGuiLayoutTools;
+using LayoutTools = ExtensionKit.Editor.EditorGuiLayoutTools;
 
 namespace FishNet.Component.Transforming.Editing
 {
@@ -58,7 +58,9 @@ namespace FishNet.Component.Transforming.Editing
         {
             serializedObject.Update();
 
-            LayoutTools.AddObjectField("Script:", MonoScript.FromMonoBehaviour((NetworkTransform)target), typeof(NetworkTransform), false, EditorLayoutEnableType.Disabled);
+            LayoutTools.AddObjectField(
+                "Script:", MonoScript.FromMonoBehaviour((NetworkTransform)target),
+                typeof(NetworkTransform), false, EditorLayoutEnableType.Disabled);
 
             // bool isPro = false;
             // if (isPro)

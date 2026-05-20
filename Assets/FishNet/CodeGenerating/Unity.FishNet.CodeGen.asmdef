@@ -4,7 +4,8 @@
     "references": [
         "FishNet.Runtime",
         "FishNet.Codegen.Cecil",
-        "ExtensionKit"
+        "ExtensionKit",
+        "ExtensionKit.Editor"
     ],
     "includePlatforms": [
         "Editor"

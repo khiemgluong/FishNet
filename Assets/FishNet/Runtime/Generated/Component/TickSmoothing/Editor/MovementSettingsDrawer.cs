@@ -1,8 +1,8 @@
 ﻿#if UNITY_EDITOR && !THREADED_TICKSMOOTHERS
 using FishNet.Object;
-using ExtensionKit;
 using UnityEditor;
 using UnityEngine;
+using ExtensionKit.Editor;
 
 namespace FishNet.Component.Transforming.Beta.Editing
 {

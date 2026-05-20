@@ -133,8 +133,7 @@ namespace FishNet.Managing.Object
         {
             if (subscribe)
                 SceneManager.sceneLoaded += SceneManager_sceneLoaded;
-            else
-                SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
+            else SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
         }
 
         /// <summary>
@@ -175,7 +174,7 @@ namespace FishNet.Managing.Object
 
                     return;
                 }
-                
+
                 NetworkManager.LogError($"Initialization occurred twice on object {this.ToString()} and recovery not clean up as expected. The prior Id of [{oldId}] belonged to a different object {oldNetworkObject} when it was expected to belong to the first.");
             }
         }
@@ -402,9 +401,9 @@ namespace FishNet.Managing.Object
         /// <param name = "nob"></param>
         protected virtual void DespawnWithoutSynchronization(NetworkObject nob, bool recursive, bool asServer, DespawnType despawnType, bool removeFromSpawned)
         {
-            #if FISHNET_STABLE_RECURSIVE_DESPAWNS
+#if FISHNET_STABLE_RECURSIVE_DESPAWNS
             recursive = false;
-            #endif
+#endif
 
             GetNetworkObjectOption getOption = recursive ? GetNetworkObjectOption.All : GetNetworkObjectOption.Self;
             List<NetworkObject> allNobs = nob.GetNetworkObjects(getOption);
@@ -517,11 +516,11 @@ namespace FishNet.Managing.Object
 
                 /* Default logging for server is errors only. Use error on client and warning
                  * on servers to reduce chances of allocation attacks. */
-                #if DEVELOPMENT_BUILD || UNITY_EDITOR || !UNITY_SERVER
+#if DEVELOPMENT_BUILD || UNITY_EDITOR || !UNITY_SERVER
                 NetworkManager.LogError(msg);
-                #else
+#else
                 NetworkManager.LogWarning(msg);
-                #endif
+#endif
                 reader.Clear();
             }
             /* If length is known then is unreliable packet. It's possible
@@ -547,9 +546,9 @@ namespace FishNet.Managing.Object
         {
             using (_pm_ParseReplicateRpc.Auto())
             {
-                #if DEVELOPMENT
+#if DEVELOPMENT
                 NetworkBehaviour.ReadDebugForValidatedRpc(NetworkManager, reader, out int startReaderRemaining, out string rpcInformation, out uint expectedReadAmount);
-                #endif
+#endif
                 int readerStartAfterDebug = reader.Position;
 
                 NetworkBehaviour nb = reader.ReadNetworkBehaviour();
@@ -559,13 +558,13 @@ namespace FishNet.Managing.Object
                 else
                     SkipDataLength((ushort)PacketId.ServerRpc, reader, dataLength);
 
-                #if DEVELOPMENT
+#if DEVELOPMENT
                 NetworkBehaviour.TryPrintDebugForValidatedRpc(fromRpcLink: false, NetworkManager, reader, startReaderRemaining, rpcInformation, expectedReadAmount, channel);
-                #endif
+#endif
             }
         }
 
-        #if DEVELOPMENT
+#if DEVELOPMENT
         /// <summary>
         /// Checks to write a scene object's details into a writer.
         /// </summary>
@@ -590,6 +589,6 @@ namespace FishNet.Managing.Object
                 objectName = r.ReadStringAllocated();
             }
         }
-        #endif
+#endif
     }
 }

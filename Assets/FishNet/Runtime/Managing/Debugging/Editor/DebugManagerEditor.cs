@@ -3,7 +3,7 @@ using FishNet.Managing.Debugging;
 using ExtensionKit;
 using UnityEditor;
 using UnityEngine;
-using LayoutTools = ExtensionKit.EditorGuiLayoutTools;
+using LayoutTools = ExtensionKit.Editor.EditorGuiLayoutTools;
 
 namespace FishNet.Managing.Editing
 {
