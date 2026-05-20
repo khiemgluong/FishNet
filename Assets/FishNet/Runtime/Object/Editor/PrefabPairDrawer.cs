@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 
@@ -37,3 +38,4 @@ namespace FishNet.Object.Editing
             => EditorGUIUtility.singleLineHeight;
     }
 }
+#endif
